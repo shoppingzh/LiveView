@@ -1,0 +1,8 @@
+platform :ios, '9.0'
+target 'LiveViewDemo' do
+
+pod 'LFLiveKit'
+pod 'Masonry'
+
+end
+

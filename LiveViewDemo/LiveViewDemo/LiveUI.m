@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UIButton *closeBtn;
 @property (nonatomic, strong) UIButton *startBtn;
 
+@property (nonatomic, strong) NSTimer *messageTimer;
+
 @end
 
 @implementation LiveUI
@@ -47,7 +49,6 @@
         make.edges.equalTo(self.view);
     }];
     [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         if (@available(iOS 11.0, *)) {
             make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
             make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft).with.offset(10);
@@ -62,7 +63,21 @@
     }];
 }
 
+- (void)dealloc{
+    if(self.messageTimer.valid){
+        [self.messageTimer invalidate];
+    }
+}
+
 #pragma mark - getter setter
+
+- (NSTimer *)messageTimer{
+    if(!_messageTimer){
+        _messageTimer = [[NSTimer alloc] initWithFireDate:[NSDate date] interval:1.0 target:self selector:@selector(timerCycle:) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:_messageTimer forMode:NSDefaultRunLoopMode];
+    }
+    return _messageTimer;
+}
 
 - (LiveView *)liveView{
     if(!_liveView){
@@ -79,14 +94,13 @@
         _prepareView = [[LivePrepareView alloc] init];
         _prepareView.delegate = self;
     }
-    
     return _prepareView;
 }
 
 - (UIButton *)closeBtn{
     if(!_closeBtn){
         _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _closeBtn.titleLabel.font = [UIFont fontWithName:@"suite" size:32];
+        _closeBtn.titleLabel.font = [UIFont fontWithName:@"suite" size:24];
         _closeBtn.tintColor = [UIColor whiteColor];
         [_closeBtn setTitle:@"\U0000e627" forState:UIControlStateNormal];
         [_closeBtn addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
@@ -122,6 +136,9 @@
 - (void)didLiveStart{
     [self.startBtn setHidden:YES];
     [self.prepareView removeFromSuperview];
+    
+    // 开启消息获取定时器
+    [self.messageTimer fire];
 }
 
 - (void)didLiveStop{
@@ -152,6 +169,16 @@
 - (IBAction)close:(id)sender{
     [self.liveView stopLive];
     
+}
+
+- (IBAction)timerCycle:(id)sender{
+    NSLog(@"1秒时间到");
+    
+    Message *msg = [Message new];
+    msg.name = @"老郑头";
+    msg.content = @"直播功能也太炫酷了吧";
+    
+    [self.liveView addMessages:[NSArray arrayWithObjects:msg, nil]];
 }
 
 @end

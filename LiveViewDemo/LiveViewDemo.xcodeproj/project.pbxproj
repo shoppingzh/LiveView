@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21214FAC2354013C00B375ED /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21214FAB2354013C00B375ED /* iconfont.ttf */; };
+		21214FB0235402BF00B375ED /* UIImage+IconFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 21214FAF235402BF00B375ED /* UIImage+IconFont.m */; };
 		21453CB82351874200EC098A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CB72351874200EC098A /* AppDelegate.m */; };
 		21453CBB2351874200EC098A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CBA2351874200EC098A /* ViewController.m */; };
 		21453CBE2351874200EC098A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21453CBC2351874200EC098A /* Main.storyboard */; };
@@ -16,7 +18,6 @@
 		21453CCE235187A400EC098A /* LiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CCD235187A400EC098A /* LiveView.m */; };
 		21453CD1235187B200EC098A /* LivePrepareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CD0235187B200EC098A /* LivePrepareView.m */; };
 		21453CD723518A0000EC098A /* LiveUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CD623518A0000EC098A /* LiveUI.m */; };
-		21453CD92351919C00EC098A /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21453CD82351919C00EC098A /* iconfont.ttf */; };
 		21453CDC2351A6DF00EC098A /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CDB2351A6DE00EC098A /* MessageTableViewCell.m */; };
 		21453CDF2351A71700EC098A /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CDE2351A71700EC098A /* Message.m */; };
 		21D395372351C765000BEF34 /* MainUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D395362351C765000BEF34 /* MainUI.m */; };
@@ -24,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21214FAB2354013C00B375ED /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		21214FAE235402BF00B375ED /* UIImage+IconFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+IconFont.h"; sourceTree = "<group>"; };
+		21214FAF235402BF00B375ED /* UIImage+IconFont.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IconFont.m"; sourceTree = "<group>"; };
 		21453CB32351874200EC098A /* LiveViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21453CB62351874200EC098A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21453CB72351874200EC098A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,7 +44,6 @@
 		21453CD0235187B200EC098A /* LivePrepareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePrepareView.m; sourceTree = "<group>"; };
 		21453CD523518A0000EC098A /* LiveUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveUI.h; sourceTree = "<group>"; };
 		21453CD623518A0000EC098A /* LiveUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveUI.m; sourceTree = "<group>"; };
-		21453CD82351919C00EC098A /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		21453CDA2351A6DE00EC098A /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		21453CDB2351A6DE00EC098A /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		21453CDD2351A71600EC098A /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -72,6 +75,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		21214FAD235402A000B375ED /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				21214FAE235402BF00B375ED /* UIImage+IconFont.h */,
+				21214FAF235402BF00B375ED /* UIImage+IconFont.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		21453CAA2351874200EC098A = {
 			isa = PBXGroup;
 			children = (
@@ -93,7 +105,8 @@
 		21453CB52351874200EC098A /* LiveViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				21453CD82351919C00EC098A /* iconfont.ttf */,
+				21214FAD235402A000B375ED /* Helpers */,
+				21214FAB2354013C00B375ED /* iconfont.ttf */,
 				21453CB62351874200EC098A /* AppDelegate.h */,
 				21453CB72351874200EC098A /* AppDelegate.m */,
 				21453CB92351874200EC098A /* ViewController.h */,
@@ -185,7 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21453CD92351919C00EC098A /* iconfont.ttf in Resources */,
+				21214FAC2354013C00B375ED /* iconfont.ttf in Resources */,
 				21453CC32351874300EC098A /* LaunchScreen.storyboard in Resources */,
 				21453CC02351874300EC098A /* Assets.xcassets in Resources */,
 				21453CBE2351874200EC098A /* Main.storyboard in Resources */,
@@ -233,6 +246,7 @@
 				21453CC62351874300EC098A /* main.m in Sources */,
 				21453CB82351874200EC098A /* AppDelegate.m in Sources */,
 				21453CD723518A0000EC098A /* LiveUI.m in Sources */,
+				21214FB0235402BF00B375ED /* UIImage+IconFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,7 +4,8 @@
 ### 功能截图
 
 #### 准备阶段
-![](images/1.png)
+
+<img src="https://github.com/shoppingzh/LiveView/raw/dev/images/1.png" width="120">
 
 #### 准备就绪
 ![](images/2.png)

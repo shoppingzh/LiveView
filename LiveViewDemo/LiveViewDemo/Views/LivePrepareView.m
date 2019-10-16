@@ -16,25 +16,22 @@
 @property (nonatomic, strong) UIButton *openMicroBtn;
 @property (nonatomic, strong) UILabel *tipsLabel;
 
-
 @end
 
 @implementation LivePrepareView
 
-- (instancetype)init{
-    if(self = [super init]){
-        self.backgroundColor = [UIColor colorWithRed:.1 green:.1 blue:.1 alpha:.85];
+- (instancetype)initWithFrame:(CGRect)frame{
+    if(self = [super initWithFrame:frame]){
+        self.backgroundColor = [UIColor colorWithRed:.2 green:.3 blue:.4 alpha:1];
         [self addSubview:self.openCameraBtn];
         [self addSubview:self.openMicroBtn];
         [self addSubview:self.tipsLabel];
-        [self layoutViews];
         [self checkAuth];
     }
-    
     return self;
 }
 
-- (void)layoutViews{
+- (void)layoutSubviews{
     [self.openCameraBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.mas_centerX);
         make.centerY.equalTo(self.mas_centerY).with.offset(30);
@@ -83,7 +80,7 @@
 - (UIButton *)openCameraBtn{
     if(!_openCameraBtn){
         _openCameraBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_openCameraBtn setTitle:@"打开摄像头权限" forState:UIControlStateNormal];
+        [_openCameraBtn setTitle:@" 打开摄像头权限" forState:UIControlStateNormal];
         [_openCameraBtn setImage:[UIImage imageWithIcon:@"\U0000e60a" fontName:@"suite" size:_openCameraBtn.titleLabel.font.pointSize color:[UIColor whiteColor]] forState:UIControlStateDisabled];
         [_openCameraBtn addTarget:self action:@selector(authCamera:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -93,7 +90,7 @@
 - (UIButton *)openMicroBtn{
     if(!_openMicroBtn){
         _openMicroBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_openMicroBtn setTitle:@"打开麦克风权限" forState:UIControlStateNormal];
+        [_openMicroBtn setTitle:@" 打开麦克风权限" forState:UIControlStateNormal];
         [_openMicroBtn setImage:[UIImage imageWithIcon:@"\U0000e60a" fontName:@"suite" size:_openMicroBtn.titleLabel.font.pointSize color:[UIColor whiteColor]] forState:UIControlStateDisabled];
         [_openMicroBtn addTarget:self action:@selector(authMicro:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -105,7 +102,7 @@
     if(!_tipsLabel){
         _tipsLabel = [[UILabel alloc] init];
         _tipsLabel.font = [UIFont fontWithName:@"suite" size:12];
-        _tipsLabel.textColor = [UIColor grayColor];
+        _tipsLabel.textColor = [UIColor lightGrayColor];
         _tipsLabel.text = @"\U0000e66a 第一次启动等待的时间较长，请您耐心等待";
     }
     return _tipsLabel;

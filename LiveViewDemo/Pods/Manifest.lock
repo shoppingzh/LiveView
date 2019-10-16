@@ -1,20 +1,24 @@
 PODS:
+  - IQKeyboardManager (6.2.0)
   - LFLiveKit (2.6)
   - Masonry (1.1.0)
 
 DEPENDENCIES:
+  - IQKeyboardManager
   - LFLiveKit
   - Masonry
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IQKeyboardManager
     - LFLiveKit
     - Masonry
 
 SPEC CHECKSUMS:
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   LFLiveKit: 2219563721f8aa0f188effc3395a06e2d53b23f2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: 1c848d12384ace886c0dc7adecb364fa750734c7
+PODFILE CHECKSUM: 87137ef4f583ba49a9c96e073b912842fe9539b2
 
 COCOAPODS: 1.6.0

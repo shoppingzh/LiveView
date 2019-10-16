@@ -13,11 +13,11 @@
 
 @interface LiveUI () <LivePrepareViewDelegate, LiveViewDelegate>
 
-@property (nonatomic, strong) LiveView *liveView;
+@property (nonatomic, strong) UIView *frontView;
 @property (nonatomic, strong) LivePrepareView *prepareView;
-@property (nonatomic, strong) UIButton *closeBtn;
 @property (nonatomic, strong) UIButton *startBtn;
-
+@property (nonatomic, strong) UIButton *closeBtn;
+@property (nonatomic, strong) LiveView *liveView;
 @property (nonatomic, strong) NSTimer *messageTimer;
 
 @end
@@ -33,33 +33,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.frontView];
     [self.view addSubview:self.liveView];
-    [self.view addSubview:self.prepareView];
-    [self.view addSubview:self.closeBtn];
-    [self.view addSubview:self.startBtn];
+    [self.view bringSubviewToFront:self.frontView];
     
     [self layoutViews];
 }
 
 - (void)layoutViews{
+    [self.frontView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     [self.liveView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
-    }];
-    [self.prepareView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        if (@available(iOS 11.0, *)) {
-            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
-            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft).with.offset(10);
-        } else {
-            make.top.equalTo(self.view.mas_top);
-            make.left.equalTo(self.view.mas_left).with.offset(10);
-        }
-    }];
-    [self.startBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.centerY.equalTo(self.view.mas_centerY).with.offset(-40);
     }];
 }
 
@@ -73,10 +59,39 @@
 
 - (NSTimer *)messageTimer{
     if(!_messageTimer){
-        _messageTimer = [[NSTimer alloc] initWithFireDate:[NSDate date] interval:1.0 target:self selector:@selector(timerCycle:) userInfo:nil repeats:YES];
+        _messageTimer = [[NSTimer alloc] initWithFireDate:[NSDate date] interval:1 target:self selector:@selector(timerCycle:) userInfo:nil repeats:YES];
         [[NSRunLoop mainRunLoop] addTimer:_messageTimer forMode:NSDefaultRunLoopMode];
     }
     return _messageTimer;
+}
+
+- (UIView *)frontView{
+    if(!_frontView){
+        _frontView = [[UIView alloc] init];
+        _frontView.backgroundColor = [UIColor colorWithRed:.2 green:.3 blue:.4 alpha:1];
+        [_frontView addSubview:self.prepareView];
+        [_frontView addSubview:self.closeBtn];
+        [_frontView addSubview:self.startBtn];
+        
+        UIView *superView = self->_frontView;
+        [self.prepareView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(superView);
+        }];
+        [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            if (@available(iOS 11.0, *)) {
+                make.top.equalTo(superView.mas_safeAreaLayoutGuideTop);
+                make.left.equalTo(superView.mas_safeAreaLayoutGuideLeft).with.offset(10);
+            } else {
+                make.top.equalTo(superView.mas_top);
+                make.left.equalTo(superView.mas_left).with.offset(10);
+            }
+        }];
+        [self.startBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(superView.mas_centerX);
+            make.centerY.equalTo(superView.mas_centerY).with.offset(-40);
+        }];
+    }
+    return _frontView;
 }
 
 - (LiveView *)liveView{
@@ -100,7 +115,7 @@
 - (UIButton *)closeBtn{
     if(!_closeBtn){
         _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _closeBtn.titleLabel.font = [UIFont fontWithName:@"suite" size:24];
+        _closeBtn.titleLabel.font = [UIFont fontWithName:@"suite" size:20];
         _closeBtn.tintColor = [UIColor whiteColor];
         [_closeBtn setTitle:@"\U0000e627" forState:UIControlStateNormal];
         [_closeBtn addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
@@ -133,24 +148,31 @@
 
 #pragma mark - LiveViewDelegate
 
-- (void)didLiveStart{
-    [self.startBtn setHidden:YES];
-    [self.prepareView removeFromSuperview];
-    
+- (void)didLiveStart:(LiveView *)liveView{
+    [self.frontView setHidden:YES];
     // 开启消息获取定时器
     [self.messageTimer fire];
 }
 
-- (void)didLiveStop{
+- (void)didLiveStop:(LiveView *)liveView{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)didLiveError:(LFLiveSocketErrorCode)errorCode{
+- (void)liveView:(LiveView *)liveView didLiveError:(LFLiveSocketErrorCode)errorCode{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"服务器连接错误，请稍后重试。" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [self close:nil];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (BOOL)liveView:(LiveView *)liveView didReplyMessage:(NSString *)content{
+    Message *msg = [Message new];
+    msg.name = @"诡术妖桶";
+    msg.mine = YES;
+    msg.content = content;
+    [liveView addMessages:[NSArray arrayWithObjects:msg, nil]];
+    return NO;
 }
 
 #pragma mark - 状态栏颜色
@@ -168,11 +190,10 @@
 
 - (IBAction)close:(id)sender{
     [self.liveView stopLive];
-    
 }
 
 - (IBAction)timerCycle:(id)sender{
-    NSLog(@"1秒时间到");
+//    NSLog(@"1秒时间到");
     
     Message *msg = [Message new];
     msg.name = @"老郑头";

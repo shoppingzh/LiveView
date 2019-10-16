@@ -6,7 +6,10 @@
 //
 
 #import "AppDelegate.h"
+#import <IQKeyboardManager.h>
 #import "MainUI.h"
+#import "MessageUI.h"
+
 
 @interface AppDelegate ()
 
@@ -19,6 +22,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [MainUI new];
     [self.window makeKeyAndVisible];
+    
+    // IQKeyboardManager设置
+    IQKeyboardManager *km = [IQKeyboardManager sharedManager];
+    km.enable = YES;
+    km.enableAutoToolbar = NO; // 隐藏键盘上方的工具栏
+    km.shouldResignOnTouchOutside = YES; // 点击外部收回键盘
+    
     return YES;
 }
 @end

@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, nullable) NSString *name;
 @property (nonatomic, copy, nullable) NSString *content;
+@property (nonatomic, strong, nullable) NSDate *datetime;
+@property (nonatomic, assign) BOOL mine;
 
 @end
 

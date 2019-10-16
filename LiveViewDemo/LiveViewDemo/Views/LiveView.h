@@ -11,14 +11,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class LiveView;
+// 直播代理
 @protocol LiveViewDelegate <NSObject>
 
+@optional
 // 直播已开始
-- (void)didLiveStart;
+- (void)didLiveStart:(LiveView*)liveView;
 // 直播已结束
-- (void)didLiveStop;
+- (void)didLiveStop:(LiveView*)liveView;
 // 直播发生错误
-- (void)didLiveError:(LFLiveSocketErrorCode) errorCode;
+- (void)liveView:(LiveView*)liveView didLiveError:(LFLiveSocketErrorCode) errorCode;
+// 回复了一条消息
+// 当返回YES时，表示结束本次回复会话，否则就可以连续回复
+- (BOOL)liveView:(LiveView*)liveView didReplyMessage:(NSString*) content;
 
 @end
 

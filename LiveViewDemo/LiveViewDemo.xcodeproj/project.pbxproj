@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21214FAC2354013C00B375ED /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21214FAB2354013C00B375ED /* iconfont.ttf */; };
+		2100551E23557949004B81D2 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CDB2351A6DE00EC098A /* MessageTableViewCell.m */; };
+		21005521235579B3004B81D2 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21005520235579B3004B81D2 /* MessageView.m */; };
+		2100552423557B52004B81D2 /* MessageUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2100552323557B52004B81D2 /* MessageUI.m */; };
+		2116177A2356DD640093DDB2 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 211617792356DD640093DDB2 /* iconfont.ttf */; };
 		21214FB0235402BF00B375ED /* UIImage+IconFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 21214FAF235402BF00B375ED /* UIImage+IconFont.m */; };
+		2136FD882355ABE000229CC7 /* MessageReplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2136FD872355ABE000229CC7 /* MessageReplyView.m */; };
 		21453CB82351874200EC098A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CB72351874200EC098A /* AppDelegate.m */; };
 		21453CBB2351874200EC098A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CBA2351874200EC098A /* ViewController.m */; };
 		21453CBE2351874200EC098A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21453CBC2351874200EC098A /* Main.storyboard */; };
@@ -18,16 +22,21 @@
 		21453CCE235187A400EC098A /* LiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CCD235187A400EC098A /* LiveView.m */; };
 		21453CD1235187B200EC098A /* LivePrepareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CD0235187B200EC098A /* LivePrepareView.m */; };
 		21453CD723518A0000EC098A /* LiveUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CD623518A0000EC098A /* LiveUI.m */; };
-		21453CDC2351A6DF00EC098A /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CDB2351A6DE00EC098A /* MessageTableViewCell.m */; };
 		21453CDF2351A71700EC098A /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453CDE2351A71700EC098A /* Message.m */; };
 		21D395372351C765000BEF34 /* MainUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D395362351C765000BEF34 /* MainUI.m */; };
 		4D32487E6743C8DBA5CADA90 /* libPods-LiveViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB1060194BDD05BDED6CC8 /* libPods-LiveViewDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		21214FAB2354013C00B375ED /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		2100551F235579B3004B81D2 /* MessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
+		21005520235579B3004B81D2 /* MessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
+		2100552223557B52004B81D2 /* MessageUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageUI.h; sourceTree = "<group>"; };
+		2100552323557B52004B81D2 /* MessageUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageUI.m; sourceTree = "<group>"; };
+		211617792356DD640093DDB2 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		21214FAE235402BF00B375ED /* UIImage+IconFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+IconFont.h"; sourceTree = "<group>"; };
 		21214FAF235402BF00B375ED /* UIImage+IconFont.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IconFont.m"; sourceTree = "<group>"; };
+		2136FD862355ABE000229CC7 /* MessageReplyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageReplyView.h; sourceTree = "<group>"; };
+		2136FD872355ABE000229CC7 /* MessageReplyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageReplyView.m; sourceTree = "<group>"; };
 		21453CB32351874200EC098A /* LiveViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21453CB62351874200EC098A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21453CB72351874200EC098A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +84,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2100551C2355787B004B81D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21453CDA2351A6DE00EC098A /* MessageTableViewCell.h */,
+				21453CDB2351A6DE00EC098A /* MessageTableViewCell.m */,
+				21453CCC235187A400EC098A /* LiveView.h */,
+				21453CCD235187A400EC098A /* LiveView.m */,
+				21453CCF235187B200EC098A /* LivePrepareView.h */,
+				21453CD0235187B200EC098A /* LivePrepareView.m */,
+				2100551F235579B3004B81D2 /* MessageView.h */,
+				21005520235579B3004B81D2 /* MessageView.m */,
+				2136FD862355ABE000229CC7 /* MessageReplyView.h */,
+				2136FD872355ABE000229CC7 /* MessageReplyView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2100551D23557884004B81D2 /* UIs */ = {
+			isa = PBXGroup;
+			children = (
+				21453CD523518A0000EC098A /* LiveUI.h */,
+				21453CD623518A0000EC098A /* LiveUI.m */,
+				21D395352351C765000BEF34 /* MainUI.h */,
+				21D395362351C765000BEF34 /* MainUI.m */,
+			);
+			path = UIs;
+			sourceTree = "<group>";
+		};
 		21214FAD235402A000B375ED /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,8 +142,10 @@
 		21453CB52351874200EC098A /* LiveViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				21EAE9A82356A351007EB837 /* Models */,
+				2100551D23557884004B81D2 /* UIs */,
+				2100551C2355787B004B81D2 /* Views */,
 				21214FAD235402A000B375ED /* Helpers */,
-				21214FAB2354013C00B375ED /* iconfont.ttf */,
 				21453CB62351874200EC098A /* AppDelegate.h */,
 				21453CB72351874200EC098A /* AppDelegate.m */,
 				21453CB92351874200EC098A /* ViewController.h */,
@@ -115,21 +154,21 @@
 				21453CBF2351874300EC098A /* Assets.xcassets */,
 				21453CC12351874300EC098A /* LaunchScreen.storyboard */,
 				21453CC42351874300EC098A /* Info.plist */,
-				21453CDA2351A6DE00EC098A /* MessageTableViewCell.h */,
-				21453CDD2351A71600EC098A /* Message.h */,
-				21453CDE2351A71700EC098A /* Message.m */,
-				21453CDB2351A6DE00EC098A /* MessageTableViewCell.m */,
 				21453CC52351874300EC098A /* main.m */,
-				21453CCC235187A400EC098A /* LiveView.h */,
-				21453CCD235187A400EC098A /* LiveView.m */,
-				21453CCF235187B200EC098A /* LivePrepareView.h */,
-				21453CD0235187B200EC098A /* LivePrepareView.m */,
-				21453CD523518A0000EC098A /* LiveUI.h */,
-				21453CD623518A0000EC098A /* LiveUI.m */,
-				21D395352351C765000BEF34 /* MainUI.h */,
-				21D395362351C765000BEF34 /* MainUI.m */,
+				2100552223557B52004B81D2 /* MessageUI.h */,
+				2100552323557B52004B81D2 /* MessageUI.m */,
+				211617792356DD640093DDB2 /* iconfont.ttf */,
 			);
 			path = LiveViewDemo;
+			sourceTree = "<group>";
+		};
+		21EAE9A82356A351007EB837 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21453CDD2351A71600EC098A /* Message.h */,
+				21453CDE2351A71700EC098A /* Message.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E7CB757B9AEF717E041DD035 /* Pods */ = {
@@ -152,6 +191,7 @@
 				21453CAF2351874200EC098A /* Sources */,
 				21453CB02351874200EC098A /* Frameworks */,
 				21453CB12351874200EC098A /* Resources */,
+				0A77ADFE2E2BB6D444F7186D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,7 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21214FAC2354013C00B375ED /* iconfont.ttf in Resources */,
+				2116177A2356DD640093DDB2 /* iconfont.ttf in Resources */,
 				21453CC32351874300EC098A /* LaunchScreen.storyboard in Resources */,
 				21453CC02351874300EC098A /* Assets.xcassets in Resources */,
 				21453CBE2351874200EC098A /* Main.storyboard in Resources */,
@@ -208,6 +248,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A77ADFE2E2BB6D444F7186D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LiveViewDemo/Pods-LiveViewDemo-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LiveViewDemo/Pods-LiveViewDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E953DE7DE7201BD0A20E1B5E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,15 +299,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2100551E23557949004B81D2 /* MessageTableViewCell.m in Sources */,
 				21453CCE235187A400EC098A /* LiveView.m in Sources */,
+				2136FD882355ABE000229CC7 /* MessageReplyView.m in Sources */,
 				21453CDF2351A71700EC098A /* Message.m in Sources */,
 				21D395372351C765000BEF34 /* MainUI.m in Sources */,
 				21453CBB2351874200EC098A /* ViewController.m in Sources */,
-				21453CDC2351A6DF00EC098A /* MessageTableViewCell.m in Sources */,
+				2100552423557B52004B81D2 /* MessageUI.m in Sources */,
 				21453CD1235187B200EC098A /* LivePrepareView.m in Sources */,
 				21453CC62351874300EC098A /* main.m in Sources */,
 				21453CB82351874200EC098A /* AppDelegate.m in Sources */,
 				21453CD723518A0000EC098A /* LiveUI.m in Sources */,
+				21005521235579B3004B81D2 /* MessageView.m in Sources */,
 				21214FB0235402BF00B375ED /* UIImage+IconFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
